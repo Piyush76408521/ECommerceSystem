@@ -1,0 +1,569 @@
+
+# 🛒 E-Commerce System
+
+A simple console-based E-Commerce System developed using **C++ and Object-Oriented Programming (OOP)** concepts.
+
+This is a **Semester 3 group project** created by students of Sarala Birla University (SBU). The project demonstrates how C++ can be used to build a basic shopping system where customers can view products, manage their cart, place orders, and simulate payments.
+
+---
+
+## 📌 About the Project
+
+Our E-Commerce System is a beginner-friendly shopping application that runs in the console.
+
+A customer can:
+
+- View available products.
+- Add products to their shopping cart.
+- Remove products from their cart.
+- View the total cart price.
+- Place an order.
+- Make a simulated UPI or card payment.
+- View customer information.
+
+The project is designed to demonstrate important C++ programming and Object-Oriented Programming concepts in a practical way.
+
+---
+
+## 🎯 Project Objectives
+
+The main objectives of this project are:
+
+1. To understand the practical use of C++ classes and objects.
+2. To learn how Object-Oriented Programming is used in real applications.
+3. To implement inheritance and polymorphism.
+4. To understand composition and abstraction.
+5. To use STL containers and smart pointers.
+6. To implement exception handling.
+7. To practice file input and output.
+8. To develop a group project using a modular folder structure.
+9. To improve teamwork and collaborative programming skills.
+
+---
+
+## ✨ Features
+
+- 📦 Display available products.
+- 💻 Support electronic products.
+- 👕 Support clothing products.
+- 🛒 Add products to the shopping cart.
+- ➕ Update the quantity of products in the cart.
+- ❌ Remove products from the cart.
+- 🧾 Display cart items and calculate the total.
+- 📋 Place customer orders.
+- 💰 Apply discounts based on order value.
+- 💳 Simulate UPI payments.
+- 💳 Simulate card payments.
+- 👤 Display customer details.
+- 📁 Save order information to a text file.
+- ⚠️ Handle invalid quantities and unavailable stock using exceptions.
+
+> Note: Payment is simulated for educational purposes. This application does not process real financial transactions.
+
+---
+
+# 🧠 Object-Oriented Programming Concepts
+
+Our project uses several important OOP concepts. They are explained below in simple words.
+
+## 1. Encapsulation
+
+### Meaning
+
+Encapsulation means keeping data and the functions that work with that data together inside a class.
+
+It also helps protect data by making important data members private.
+
+### Example in Our Project
+
+The `Product` class stores information such as:
+
+- Product ID
+- Product name
+- Price
+- Stock
+
+These data members are private and are accessed using public member functions.
+
+### Simple Example
+
+Think of a bank account. Your balance is protected, and you use functions such as deposit or withdraw to change it.
+
+---
+
+## 2. Inheritance
+
+### Meaning
+
+Inheritance allows one class to receive properties and functions from another class.
+
+It helps us reuse code instead of writing the same code again.
+
+### Example in Our Project
+
+The `Electronics` and `Clothing` classes inherit from the `Product` class.
+
+```text
+Product
+├── Electronics
+└── Clothing
+```
+
+The common product information is written in the `Product` class, while the specialized classes add their own details.
+
+- Electronics has warranty information.
+- Clothing has size information.
+
+### Simple Example
+
+A child can inherit common features from a parent. Similarly, a derived class inherits features from a base class.
+
+---
+
+## 3. Polymorphism
+
+### Meaning
+
+Polymorphism means **"one interface, different behavior."**
+
+In simple words, the same function name can work differently depending on the object using it.
+
+### Example in Our Project
+
+The `Product` class has a virtual `display()` function.
+
+The `Electronics` and `Clothing` classes override this function to display their own information.
+
+```cpp
+virtual void display();
+```
+
+Each derived class provides its own version of `display()`.
+
+### Simple Example
+
+Imagine a function called `sound()`:
+
+- A dog makes a bark.
+- A cat makes a meow.
+- A cow makes a moo.
+
+The function has the same purpose, but the behavior is different for each object.
+
+---
+
+## 4. Abstraction
+
+### Meaning
+
+Abstraction means showing only the important details and hiding unnecessary implementation details.
+
+It allows users to focus on what something does instead of how everything works internally.
+
+### Example in Our Project
+
+The `Payment` class is an abstract class.
+
+It defines a common `pay()` function that different payment classes must implement.
+
+Our project includes:
+
+- `UPI`
+- `Card`
+
+Each payment method provides its own implementation of the payment function.
+
+### Simple Example
+
+When you use an ATM, you select an option such as withdrawing money. You do not need to understand every internal banking process.
+
+---
+
+## 5. Composition
+
+### Meaning
+
+Composition means creating a relationship where one class contains an object of another class.
+
+In simple words, one object is made up of or contains another object.
+
+### Example in Our Project
+
+The `Customer` class contains a `Cart` object.
+
+```text
+Customer
+└── Cart
+```
+
+A customer has a shopping cart, and the cart stores the customer's selected products.
+
+### Simple Example
+
+A car contains an engine. The engine is a part of the car.
+
+---
+
+## 6. Exception Handling
+
+### Meaning
+
+Exception handling is used to manage unexpected errors while a program is running.
+
+It helps the program display a meaningful error message instead of failing unexpectedly.
+
+### Example in Our Project
+
+We use exception handling when:
+
+- The user enters an invalid quantity.
+- The requested quantity is greater than available stock.
+- A product cannot be found.
+
+Our project uses:
+
+- `try`
+- `throw`
+- `catch`
+
+### Simple Example
+
+If a user enters `-2` as a product quantity, the program throws an exception and displays an error message.
+
+```text
+Error: Quantity must be greater than zero!
+```
+
+---
+
+# 🧰 C++ Concepts and Technologies Used
+
+## 1. C++ STL
+
+STL stands for **Standard Template Library**.
+
+It provides ready-made tools and data structures that make programming easier.
+
+### STL Features Used
+
+- `vector` — stores a collection of products or cart items.
+- `unique_ptr` — manages dynamically created product objects safely.
+- `make_unique` — creates objects managed by smart pointers.
+
+### Simple Example
+
+A `vector` is like a flexible list that can store multiple values.
+
+---
+
+## 2. File I/O
+
+File I/O means **File Input and Output**.
+
+It allows a program to write data to files and read data from files.
+
+### File Used in Our Project
+
+```text
+data/orders.txt
+```
+
+The project saves order information to this file.
+
+We use `ofstream` to write order details.
+
+### Why File I/O Is Useful
+
+Data can be stored in a file instead of disappearing immediately when the program closes.
+
+---
+
+## 3. Classes and Objects
+
+A class is a blueprint, and an object is a real instance created from that blueprint.
+
+### Classes Used in Our Project
+
+- `Product`
+- `Electronics`
+- `Clothing`
+- `Customer`
+- `Cart`
+- `Order`
+- `Payment`
+- `UPI`
+- `Card`
+
+---
+
+# 🗂️ Project Structure
+
+```text
+EcommerceSystem/
+│
+├── include/
+│   ├── Product.h
+│   ├── Electronics.h
+│   ├── Clothing.h
+│   ├── Customer.h
+│   ├── Cart.h
+│   ├── Order.h
+│   └── Payment.h
+│
+├── src/
+│   ├── Product.cpp
+│   ├── Electronics.cpp
+│   ├── Clothing.cpp
+│   ├── Customer.cpp
+│   ├── Cart.cpp
+│   ├── Order.cpp
+│   └── Payment.cpp
+│
+├── data/
+│   ├── products.txt
+│   └── orders.txt
+│
+├── main.cpp
+└── README.md
+```
+
+---
+
+## 📁 Folder Explanation
+
+| Folder/File | Purpose |
+|---|---|
+| `include/` | Contains class header files (`.h`). |
+| `src/` | Contains class implementation files (`.cpp`). |
+| `data/` | Contains text files for project data. |
+| `main.cpp` | Contains the main program and menu. |
+| `README.md` | Contains project information and instructions. |
+
+---
+
+# 🛠️ Technologies Used
+
+- **Programming Language:** C++
+- **Programming Concept:** Object-Oriented Programming
+- **Compiler:** GCC / MinGW
+- **Standard:** C++17
+- **Data Storage:** Text files
+- **File Handling:** C++ File I/O
+- **Version Control:** GitHub
+- **Development Environment:** Any C++ IDE or terminal
+
+> The project can be compiled using the terminal and does not require a VS Code–GitHub connection.
+
+---
+
+# ▶️ How to Run the Project
+
+## Step 1: Clone the Repository
+
+```bash
+git clone <YOUR_REPOSITORY_URL>
+```
+
+Replace `<YOUR_REPOSITORY_URL>` with your GitHub repository URL.
+
+## Step 2: Open the Project Folder
+
+```bash
+cd EcommerceSystem
+```
+
+## Step 3: Compile the Project
+
+```bash
+g++ -std=c++17 main.cpp src/*.cpp -Iinclude -o ecommerce
+```
+
+## Step 4: Run the Program
+
+### Windows PowerShell
+
+```powershell
+.\ecommerce
+```
+
+---
+
+# 📋 Main Menu
+
+```text
+========== E-COMMERCE SYSTEM ==========
+
+1. Display Products
+2. Add Product to Cart
+3. Remove Product from Cart
+4. Display Cart
+5. Place Order
+6. Make Payment
+7. Display Customer Details
+0. Exit
+```
+
+---
+
+# 🛍️ Sample Products
+
+| Product ID | Product | Price | Stock |
+|---|---|---:|---:|
+| 101 | Laptop | Rs. 60000 | 5 |
+| 102 | Headphones | Rs. 2000 | 10 |
+| 103 | T-Shirt | Rs. 800 | 15 |
+| 104 | Smartphone | Rs. 25000 | 8 |
+| 105 | Jeans | Rs. 1500 | 12 |
+
+---
+
+# 💳 Payment Methods
+
+The project includes two simulated payment methods:
+
+### 1. UPI Payment
+
+The user enters a UPI ID, and the system displays a successful payment message.
+
+### 2. Card Payment
+
+The user enters a card number, and the system displays a successful payment message.
+
+> This is only a classroom simulation. No real payment gateway or bank transaction is connected.
+
+---
+
+# ⚠️ Exception Handling Examples
+
+The system handles common input errors.
+
+### Invalid Quantity
+
+```text
+Enter Quantity: -2
+
+Error: Quantity must be greater than zero!
+```
+
+### Quantity Greater Than Stock
+
+```text
+Enter Quantity: 100
+
+Error: Requested quantity is not available in stock!
+```
+
+Exception handling helps the program respond to errors in a controlled way.
+
+---
+
+# 📁 File Handling
+
+The project uses text files for storing data.
+
+### products.txt
+
+Contains sample product information.
+
+### orders.txt
+
+Stores order details after an order is created.
+
+The project uses C++ file output functionality to save order information.
+
+---
+
+# 🔄 Project Workflow
+
+```text
+Start
+  │
+  ▼
+Display Main Menu
+  │
+  ▼
+View Products
+  │
+  ▼
+Add Products to Cart
+  │
+  ▼
+View or Update Cart
+  │
+  ▼
+Place Order
+  │
+  ▼
+Save Order Details
+  │
+  ▼
+Make Payment
+  │
+  ▼
+Exit
+```
+
+---
+
+# 🚀 Future Improvements
+
+The following features can be added in future versions:
+
+- Add a graphical user interface.
+- Add customer registration and login.
+- Add an administrator panel.
+- Load products dynamically from files.
+- Add order history.
+- Add payment status tracking.
+- Add product search and filtering.
+- Connect the application to a database.
+- Improve input validation.
+- Add secure authentication.
+- Add more payment options.
+- Add product categories and reviews.
+
+---
+
+# 👥 Team Members
+
+| No. | Name | SBU ID | Role |
+|---:|---|---|---|
+| 1 | Yash Kumar Singh | SBU2500181 | Lead / Architecture |
+| 2 | Piyush Deshmukh | SBU2500403 | Core Developer |
+| 3 | Shubham Kumar | SBU2500378 | Data / UI / Integration |
+| 4 | Saurabh Pandey | SBU2500392 | Testing |
+| 5 | Krish Kumar | SBU2500685 | Documentation |
+
+---
+
+# 🎓 Academic Information
+
+- **University:** Sarala Birla University (SBU)
+- **Project:** E-Commerce System
+- **Course:** Object-Oriented Programming using C++
+- **Semester:** 3
+- **Project Type:** Group Project
+- **Programming Language:** C++
+
+---
+
+# 📚 Learning Outcomes
+
+Through this project, we practiced:
+
+- Designing classes and objects.
+- Using inheritance and polymorphism.
+- Understanding abstraction and composition.
+- Working with STL containers.
+- Managing errors with exception handling.
+- Performing file operations.
+- Organizing a multi-file C++ project.
+- Collaborating as a project team.
+
+---
+
+# 📄 License
+
+This project is developed for educational and academic purposes.
+
+You are welcome to explore the code and learn from the implementation.
