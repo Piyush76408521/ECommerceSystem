@@ -34,8 +34,8 @@ Note: The application is a student project and does not necessarily include a re
 - Programming Language: C++
 - C++ Standard: C++17
 - Compiler: GCC / g++
-- Development Environment: Visual Studio Code or another C++-compatible editor
-- Version Control:Git and GitHub, if used
+- Development Environment: Visual Studio Code
+- Version Control:Git and GitHub
 
 5. Project Folder Structure
 
